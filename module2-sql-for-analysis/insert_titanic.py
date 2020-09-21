@@ -38,3 +38,4 @@ with open('titanic.csv', 'r') as db:
     cursor.copy_from(db, 'titanic', sep=',')
 
 conn.commit()
+conn.close()
