@@ -44,9 +44,12 @@ df = pd.DataFrame(all_customers)
 with open('/Users/macuser/Lambda/Unit 3/DS-Unit-3-Sprint-2-SQL-and-Databases/module3-nosql-and-document-oriented-databases/test_data_json.txt') as json_file:
     rpg_data = json.load(json_file)
 
+# Create a new database
 rpg_db = client.rpg_data
 
+# Create a collection inside the database
 character_table = rpg_db.characters
 
+# Insert many into collection
 character_table.insert_many(rpg_data)
 print(character_table.count_documents({}))
