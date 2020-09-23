@@ -42,6 +42,34 @@ the first two modules, rework/complete things as needed, and just check out with
 fresh eyes the SQL approach. Compare and contrast, and come with questions
 tomorrow - the main topic will be database differences and tradeoffs!
 
+# Import into MongoDB collection from JSON file
+
+with open('/Users/macuser/Lambda/Unit 3/DS-Unit-3-Sprint-2-SQL-and-Databases/module3-nosql-and-document-oriented-databases/test_data_json.txt') as json_file:
+    rpg_data = json.load(json_file)
+
+# Create a new database
+rpg_db = client.rpg_data
+
+# Create a collection inside the database
+character_table = rpg_db.characters
+
+# Insert many into collection
+character_table.insert_many(rpg_data)
+print(character_table.count_documents({}))
+
+
+<!--       ##############       -->
+
+MongoDB seems to have a much easier workflow, as its structure is not as rigid. 
+PostgreSQL and Mongo have equally easy interfaces with Python code, but their layout and implementation on the server side are not the same. MongoDB seems more intuitive and powerful, more flexible.
+
+<!--       ##############       -->
+
+
+
+
+
+
 ## Resources and Stretch Goals
 
 Put Titanic data in Big Data! That is, try to load `titanic.csv` from yesterday
